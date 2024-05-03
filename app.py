@@ -136,7 +136,7 @@ else:
     fig.update_traces(hovertemplate=hovertemplate)
 
     # Write a short heading
-    heading = get_chat_completions(f"Summarise the top topics in two sentences, in the format X, Y, and Z are the top 3 cited themes, accounting for x% of the total mentions (no decimals). Here's the data {topic_percentages}. Don't comment on the 'Other' mentions.")
+    heading = get_chat_completions(f"Summarise the top topics in two sentences, in the format X, Y, P and Z are the top 4 cited themes, accounting for x% of the total mentions (no decimals). Here's the data {topic_percentages}. Don't comment on the 'Other' mentions.")
     st.write(heading)
 
     # Display the chart for total dataset in the main area
