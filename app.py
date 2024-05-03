@@ -79,7 +79,7 @@ if filter_type == "Filtered":
     fig.update_traces(hovertemplate=hovertemplate)
 
     # Write a short heading
-    heading = get_chat_completions(f"Summarise the top topics in two sentences, in the format X, Y, and Z are the top 3 cited themes, accounting for x% of the total mentions(no decimals). Here's the data {topic_percentages}. Omit the 'Other' mentions from your heading as they aren't meaningful.")
+    heading = get_chat_completions(f"Summarise the top topics in two sentences, in the format X, Y, P and Z are the top 4 cited themes, accounting for x% of the total mentions(no decimals). Here's the data {topic_percentages}. Omit the 'Other' mentions from your heading as they aren't meaningful.")
     st.write(heading)
 
     # Display the chart in the main area
