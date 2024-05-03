@@ -44,14 +44,18 @@ if filter_type == "Filtered":
     all_Country_groups = ['UK','France','Spain','Germany','Sweden','Poland']
     all_brands = data['Gender'].unique()
 
+    all_sports = data['Most inclusive Sport'].unique()
+
     # Define filter variables with all options selected by default
     country_filter = st.sidebar.multiselect("Select Country:", all_Country_groups, all_Country_groups)
-   # brand_filter = st.sidebar.multiselect("Select Gender:", all_brands, all_brands)
-
+       
+    # brand_filter = st.sidebar.multiselect("Select Gender:", all_brands, all_brands)
+    
+    sport_filter = st.sidebar.multiselect("Select Sport:", all_sports, all_sports)
 
     # Apply filters
    # filtered_data = data[(data['Country'].isin(country_filter)) & (data['Gender'].isin(brand_filter))]
-    filtered_data = data[(data['Country'].isin(country_filter)) ]
+    filtered_data = data[(data['Country'].isin(country_filter) & (data['Most inclusive Sport'].isin(sport_filter))]
 
     # Calculate topic percentages using filtered data - I need to change this to be dynamic based on the dataset length of columns
     topics = filtered_data.columns[1:-2]
