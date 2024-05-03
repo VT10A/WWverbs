@@ -21,11 +21,11 @@ tab1, tab2, tab3 = st.tabs(["Topic frequency", "Summaries", "Relative difference
 st.sidebar.title("Filters")
 
 # Dropdown to select the data file
-selected_data = st.sidebar.selectbox("Select verbatim:", ["Q6b Negative", "Q14"])
+selected_data = st.sidebar.selectbox("Select verbatim:", ["Q6b Negative", "Q14","Q6a Positive"])
 
 
 # Mapping between dropdown selection and corresponding CSV file
-file_mapping = {"Q6b Negative": "6bNegative.csv", "Q14": "Q14.csv"}
+file_mapping = {"Q6b Negative": "6bNegative.csv", "Q14": "Q14.csv","Q6a Positive":"Q6aPositive.csv"}
 
 # Load the selected data
 data = load_data(file_mapping[selected_data])
