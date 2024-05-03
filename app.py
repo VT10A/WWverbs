@@ -196,7 +196,7 @@ with tab2:
         summary = get_chat_completions(prompt)
         return summary
     
-    age_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {age_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Over 55s over index on X, Y, and Z, accounting for x% of the total mentions. Under 25s under index on A, B, and C, accounting for y% of the total mentions'.")
+    age_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {age_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
     
     st.write(age_summary)
 
