@@ -51,7 +51,7 @@ if filter_type == "Filtered":
        
     # brand_filter = st.sidebar.multiselect("Select Gender:", all_brands, all_brands)
     
-    sport_filter = st.sidebar.multiselect("Select Sport:", all_sports, all_sports)
+    sport_filter = st.sidebar.multiselect("Select Most inclusive Sport:", all_sports, all_sports)
 
     # Apply filters
    # filtered_data = data[(data['Country'].isin(country_filter)) & (data['Gender'].isin(brand_filter))]
