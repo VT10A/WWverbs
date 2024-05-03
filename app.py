@@ -58,7 +58,7 @@ if filter_type == "Filtered":
     filtered_data = data[(data['Country'].isin(country_filter) & (data['Most inclusive Sport'].isin(sport_filter))]
 
     # Calculate topic percentages using filtered data - I need to change this to be dynamic based on the dataset length of columns
-    topics = filtered_data.columns[1:-2]
+    topics = filtered_data.columns[1:-3]
     topic_percentages = {}
     topic_samples = {}
     for topic in topics:
@@ -115,7 +115,7 @@ if filter_type == "Filtered":
     ) #
 else:
     # Calculate topic percentages for total dataset
-    topics = data.columns[1:-2]
+    topics = data.columns[1:-3]
     topic_percentages = {}
     topic_samples = {}
     for topic in topics:
