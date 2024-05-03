@@ -64,7 +64,7 @@ if filter_type == "Filtered":
         topic_samples[topic] = sample(filtered_data.loc[positive_indices, 'text'].tolist(), sample_size)
 
     # Create a chart for topic percentages using filtered data
-    st.write("## Q6b: Negative topics (Filtered %)")
+    st.write("## Topics (Filtered %)")
     fig = px.bar(x=list(topic_percentages.keys()), y=list(topic_percentages.values()), labels={'x':'Topics', 'y':'Percentage'})
     fig.update_layout(xaxis={'categoryorder':'total descending'}, yaxis_title="Percentage")
 
@@ -121,7 +121,7 @@ else:
         topic_samples[topic] = sample(data.loc[positive_indices, 'text'].tolist(), sample_size)
 
     # Create a chart for topic percentages for total dataset
-    st.write("## Q6b: Negative topics (Total %)")
+    st.write("## Topics (Total %)")
     fig = px.bar(x=list(topic_percentages.keys()), y=list(topic_percentages.values()), labels={'x':'Topics', 'y':'Percentage'})
     fig.update_layout(xaxis={'categoryorder':'total descending'}, yaxis_title="Percentage")
 
