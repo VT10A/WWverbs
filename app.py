@@ -142,6 +142,17 @@ else:
     # Display the chart for total dataset in the main area
     st.plotly_chart(fig)
 
+    df_chart = pd.DataFrame({'Topic': list(topic_percentages.keys()), 'Percentage': list(topic_percentages.values())})
+
+  # Add a download button for the filtered dataset
+    csv = df_chart.to_csv(index=False)
+    st.download_button(
+        label="Download CSV",
+        data=csv,
+        file_name='Chart_data.csv',
+        mime='text/csv'
+    ) 
+
     # Display the total dataset in a separate tab in the sidebar
     st.write("## Total Dataset")
     st.write(data)
