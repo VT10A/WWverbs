@@ -43,6 +43,7 @@ if filter_type == "Filtered":
     
     all_Country_groups = ['UK','France','Spain','Germany','Sweden','Poland']
     all_brands = data['Gender'].unique()
+    all_age_groups = data['Age'].unique()
 
     all_sports = data['Most inclusive Sport'].unique()
 
@@ -53,12 +54,14 @@ if filter_type == "Filtered":
     
     sport_filter = st.sidebar.multiselect("Select Most inclusive Sport:", all_sports, all_sports)
 
+    age_filter = st.sidebar.multiselect("Select Age brand:", all_age_groups, all_age_groups)
+    
     # Apply filters
-   # filtered_data = data[(data['Country'].isin(country_filter)) & (data['Gender'].isin(brand_filter))]
-    filtered_data = data[(data['Country'].isin(country_filter) & (data['Most inclusive Sport'].isin(sport_filter)))]
+    # filtered_data = data[(data['Country'].isin(country_filter)) & (data['Gender'].isin(brand_filter))]
+    filtered_data = data[(data['Country'].isin(country_filter) & (data['Most inclusive Sport'].isin(sport_filter) & (data['Age'].isin(sport_filter)))]
 
     # Calculate topic percentages using filtered data - I need to change this to be dynamic based on the dataset length of columns
-    topics = filtered_data.columns[1:-3]
+    topics = filtered_data.columns[1:-4]
     topic_percentages = {}
     topic_samples = {}
     for topic in topics:
@@ -115,7 +118,7 @@ if filter_type == "Filtered":
     ) #
 else:
     # Calculate topic percentages for total dataset
-    topics = data.columns[1:-3]
+    topics = data.columns[1:-4]
     topic_percentages = {}
     topic_samples = {}
     for topic in topics:
