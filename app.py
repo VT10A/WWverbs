@@ -176,7 +176,7 @@ with tab2:
     Country_group_topic_percentages = defaultdict(dict)
     Country_group_topic_samples = defaultdict(dict)
 
-    for Country, Country_group_data in age_groups:
+    for Country, Country_group_data in Country_groups:
         # Filtering data for the current age group
         filtered_data = Country_group_data
         
