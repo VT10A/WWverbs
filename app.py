@@ -46,7 +46,7 @@ if filter_type == "Filtered":
     # Obtain unique values for age and brand
 
     all_Country_groups = ['UK','France','Spain','Germany','Sweden','Poland']
-    all_age = ['18-24','25-34','35-44','45-54','55-65', 'Unknown']
+    all_age = ['18-24','25-34','35-44','45-54','55-65']
     #all_sports = data['Most inclusive Sport'].unique()
 
     # Define filter variables with all options selected by default
