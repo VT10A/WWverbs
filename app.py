@@ -182,8 +182,8 @@ with tab2:
         
         # Perform the analysis for each topic
         for topic in topics:
-            topic_percentages = round((filtered_data2[topic] == 1).sum() / len(filtered_data) * 100, 4)
-            positive_indices = filtered_data2.index[filtered_data[topic] == 1].tolist()
+            topic_percentages = round((filtered_data2[topic] == 1).sum() / len(filtered_data2) * 100, 4)
+            positive_indices = filtered_data2.index[filtered_data2[topic] == 1].tolist()
             sample_size = min(3, len(positive_indices))
             topic_samples = sample(filtered_data2.loc[positive_indices, 'text'].tolist(), sample_size)
             
@@ -192,13 +192,13 @@ with tab2:
             Country_group_topic_samples[Country][topic] = topic_samples
 
     @st.cache_data()
-    def get_age_summary(prompt):
+    def get_Country_summary(prompt):
         summary = get_chat_completions(prompt)
         return summary
     
-    age_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
+    Country_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
     
-    st.write(age_summary)
+    st.write(Country_summary)
 
 
 with tab3:
