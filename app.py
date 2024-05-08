@@ -170,15 +170,15 @@ with tab2:
     st.write("## Summary by Country")
 
     # Grouping data by age
-    age_groups = data.groupby('Country')
+    Country_groups = data.groupby('Country')
 
     # Initialize dictionaries to store results for each age group
-    age_group_topic_percentages = defaultdict(dict)
-    age_group_topic_samples = defaultdict(dict)
+    Country_group_topic_percentages = defaultdict(dict)
+    Country_group_topic_samples = defaultdict(dict)
 
-    for age, age_group_data in age_groups:
+    for Country, Country_group_data in age_groups:
         # Filtering data for the current age group
-        filtered_data = age_group_data
+        filtered_data = Country_group_data
         
         # Perform the analysis for each topic
         for topic in topics:
@@ -188,8 +188,8 @@ with tab2:
             topic_samples = sample(filtered_data.loc[positive_indices, 'text'].tolist(), sample_size)
             
             # Storing results for each topic in the current age group
-            age_group_topic_percentages[age][topic] = topic_percentages
-            age_group_topic_samples[age][topic] = topic_samples
+            age_group_topic_percentages[Country][topic] = topic_percentages
+            age_group_topic_samples[Country][topic] = topic_samples
 
     @st.cache_data()
     def get_age_summary(prompt):
