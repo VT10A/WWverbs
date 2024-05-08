@@ -177,7 +177,7 @@ with tab2:
     Country_group_topic_samples = defaultdict(dict)
 
     for Country, Country_group_data in Country_groups:
-        # Filtering data for the current age group
+        # Filtering data for the current Country group
         filtered_data2 = Country_group_data
         
         # Perform the analysis for each topic
@@ -196,7 +196,7 @@ with tab2:
         summary = get_chat_completions(prompt)
         return summary
     
-    Country_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
+    Country_summary = get_Country_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
     
     st.write(Country_summary)
 
