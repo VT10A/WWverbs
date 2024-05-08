@@ -44,7 +44,7 @@ if filter_type == "Filtered":
     all_Country_groups = ['UK','France','Spain','Germany','Sweden','Poland']
     all_brands = data['Gender'].unique()
     
-    all_age = ['18-24','25-34','35-44','45-54','55-65']
+    all_age = ['18-24','25-34','35-44','45-54','55-65', 'Unknown']
 
     all_sports = data['Most inclusive Sport'].unique()
 
