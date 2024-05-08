@@ -178,25 +178,25 @@ with tab2:
 
     for Country, Country_group_data in Country_groups:
         # Filtering data for the current age group
-        filtered_data = Country_group_data
+        filtered_data2 = Country_group_data
         
         # Perform the analysis for each topic
         for topic in topics:
-            topic_percentages = round((filtered_data[topic] == 1).sum() / len(filtered_data) * 100, 4)
-            positive_indices = filtered_data.index[filtered_data[topic] == 1].tolist()
+            topic_percentages = round((filtered_data2[topic] == 1).sum() / len(filtered_data) * 100, 4)
+            positive_indices = filtered_data2.index[filtered_data[topic] == 1].tolist()
             sample_size = min(3, len(positive_indices))
-            topic_samples = sample(filtered_data.loc[positive_indices, 'text'].tolist(), sample_size)
+            topic_samples = sample(filtered_data2.loc[positive_indices, 'text'].tolist(), sample_size)
             
             # Storing results for each topic in the current age group
-            age_group_topic_percentages[Country][topic] = topic_percentages
-            age_group_topic_samples[Country][topic] = topic_samples
+            Country_group_topic_percentages[Country][topic] = topic_percentages
+            Country_group_topic_samples[Country][topic] = topic_samples
 
     @st.cache_data()
     def get_age_summary(prompt):
         summary = get_chat_completions(prompt)
         return summary
     
-    age_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {age_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
+    age_summary = get_age_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
     
     st.write(age_summary)
 
