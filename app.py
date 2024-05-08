@@ -13,7 +13,7 @@ import os
 def load_data(file_name):
     return pd.read_csv(file_name)
 
-@st.cache_data()
+@st.cache_data
 def get_Country_summary(prompt):
     summary = get_chat_completions(prompt)
     return summary
@@ -200,6 +200,7 @@ with tab2:
 
 
 with tab3:
+    
     st.write("## Relative difference by Country")
     
     st.markdown('Speaking in relative not absolute terms, we see the link to operational effeciencies is stronger in Mexico. In the UK, AI development and supporting Ukraine is further up the rankings. The remaining Countries cluster more closely together.')
