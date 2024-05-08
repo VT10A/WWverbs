@@ -177,7 +177,6 @@ with tab2:
     Country_group_topic_samples = defaultdict(dict)
 
     for Country, Country_group_data in Country_groups:
-        # Filtering data for the current Country group
         filtered_data2 = Country_group_data
         
         # Perform the analysis for each topic
