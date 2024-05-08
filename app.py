@@ -43,7 +43,8 @@ if filter_type == "Filtered":
     
     all_Country_groups = ['UK','France','Spain','Germany','Sweden','Poland']
     all_brands = data['Gender'].unique()
-    all_age_groups = data['Age'].unique()
+    
+    all_age = data['Age'].unique()
 
     all_sports = data['Most inclusive Sport'].unique()
 
@@ -54,7 +55,7 @@ if filter_type == "Filtered":
     
     sport_filter = st.sidebar.multiselect("Select Most inclusive Sport:", all_sports, all_sports)
 
-    age_filter = st.sidebar.multiselect("Select Age brand:", all_age_groups, all_age_groups)
+    age_filter = st.sidebar.multiselect("Select Age brand:", all_age, all_age)
     
     # Apply filters
     # filtered_data = data[(data['Country'].isin(country_filter)) & (data['Gender'].isin(brand_filter))]
