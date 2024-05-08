@@ -174,6 +174,7 @@ else:
 with tab2:
     st.write("## Summary by Country")
 
+    
     # Grouping data by age
     Country_groups = data.groupby('Country')
 
@@ -183,9 +184,10 @@ with tab2:
 
     for Country, Country_group_data in Country_groups:
         filtered_data2 = Country_group_data
+        topics2 = filtered_data2.columns[1:-4]
         
         # Perform the analysis for each topic
-        for topic in topics:
+        for topic in topics2:
             topic_percentages = round((filtered_data2[topic] == 1).sum() / len(filtered_data2) * 100, 4)
             positive_indices = filtered_data2.index[filtered_data2[topic] == 1].tolist()
             sample_size = min(3, len(positive_indices))
