@@ -13,6 +13,11 @@ import os
 def load_data(file_name):
     return pd.read_csv(file_name)
 
+@st.cache_data()
+def get_Country_summary(prompt):
+    summary = get_chat_completions(prompt)
+    return summary
+
 #data = load_data()
 
 tab1, tab2, tab3 = st.tabs(["Topic frequency", "Summaries", "Relative differences by Country"])
@@ -190,13 +195,7 @@ with tab2:
             Country_group_topic_percentages[Country][topic] = topic_percentages
             Country_group_topic_samples[Country][topic] = topic_samples
 
-    @st.cache_data()
-    def get_Country_summary(prompt):
-        summary = get_chat_completions(prompt)
-        return summary
-    
     Country_summary = get_Country_summary(f"Summarise any interesting differences by Country within a single paragraph, focusing on the percentages of the total mentions (no decimals). Here's the data {Country_group_topic_percentages}. Don't comment on the 'Other' mentions. And use a direct market research style, e.g. 'Country A over index on X, Y, and Z, accounting for x% of the total mentions. Country B under index on A, B, and C, accounting for y% of the total mentions'.")
-    
     st.write(Country_summary)
 
 
